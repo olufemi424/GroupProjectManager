@@ -1,7 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import { deflate } from "zlib";
 
 // Initialize Firebase
 var config = {
@@ -15,4 +14,4 @@ var config = {
 firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
 
-export default firebae;
+export default firebase;
