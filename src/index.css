@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Acme");
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 2;
+  letter-spacing: 1.2px;
+  background-color: #42a4f53c;
+  background-size: 100%;
+  background-position: cover;
+  min-height: 100%;
+}
+
+.dashbaord {
+  margin-top: 20px;
+}
+
+.card {
+  border-radius: 5px;
+  border: 0.5px solid #42a4f59c;
+}
+
+.project-summary .card-title {
+  padding-bottom: 10px;
+  border-bottom: 1px rgba(0, 0, 0, 0.229) solid;
+}
+
+form {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+form button,
+form h5 {
+  margin: 20px 0;
+}
+
+.btn-floating {
+  margin-bottom: -60px;
+  width: 70px;
+  height: 70px;
+  border: 10px solid #d2e9fc;
+  padding: 5px;
+  font-size: 20px;
+}
+
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-color: #42a5f5;
+  box-shadow: none;
+}
