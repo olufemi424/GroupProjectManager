@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+
 import { signIn } from "../../store/actions/authActions";
 
 export class SingedIn extends Component {
@@ -19,7 +21,9 @@ export class SingedIn extends Component {
     this.props.signIn(this.state);
   };
   render() {
-    const { authError } = this.props;
+    const { authError, auth } = this.props;
+    if (auth.uid) return <Redirect to="/" />;
+
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleOnSubmit}>
@@ -50,7 +54,7 @@ export class SingedIn extends Component {
 
 const mapStateToProps = state => {
   return {
-    authError: state.auth.authError
+    auth: state.firebase.auth
   };
 };
 
