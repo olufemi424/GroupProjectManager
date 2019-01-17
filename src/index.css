@@ -16,7 +16,10 @@ body {
 }
 
 .dashbaord {
-  margin-top: 20px;
+  margin-top: 25px;
+}
+.project-details {
+  margin-top: 25px;
 }
 
 .card {

@@ -30,7 +30,6 @@ const ProjectDetails = props => {
       </div>
     );
   }
-  return { project };
 };
 
 const mapStateToProps = (state, ownProps) => {
