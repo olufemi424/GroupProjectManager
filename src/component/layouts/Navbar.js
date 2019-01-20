@@ -13,7 +13,7 @@ const Navbar = props => {
     <SignedOutLinks />
   );
   return (
-    <nav className="nav-wrapper grey darken-1">
+    <nav className="nav-wrapper">
       <div className="container">
         <Link to="/" className="brand-logo left">
           Project Manager

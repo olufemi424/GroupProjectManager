@@ -1,11 +1,13 @@
 import React from "react";
 import moment from "moment";
+import pImg from "../../img/p.png";
 
 const ProjectSummary = props => {
   const { project } = props;
   return (
     <div className="card z-depth-0 project-summary">
-      <div className="card-content text-darken">
+      <img src={pImg} alt="" className="post-image" />
+      <div className="card-content">
         <span className="card-title">{project.title}</span>
         <p>
           Posted by{" "}

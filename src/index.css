@@ -15,6 +15,12 @@ body {
   min-height: 100%;
 }
 
+.nav-wrapper {
+  background-color: #42a5f5;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
 .dashbaord {
   margin-top: 25px;
 }
@@ -27,9 +33,24 @@ body {
   border: 0.5px solid #42a4f59c;
 }
 
+.post-image {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  bottom: -43px;
+  left: -45px;
+  opacity: 0.2;
+}
+
+.project-summary {
+  overflow: hidden;
+  padding-left: 20px;
+}
+
 .project-summary .card-title {
   padding-bottom: 10px;
   border-bottom: 1px rgba(0, 0, 0, 0.229) solid;
+  text-transform: capitalize;
 }
 
 form {
