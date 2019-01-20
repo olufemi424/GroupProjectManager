@@ -23,14 +23,18 @@ export class SingedIn extends Component {
   render() {
     const { authError, auth } = this.props;
     if (auth.uid) return <Redirect to="/" />;
-
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleOnSubmit}>
           <h5 className="grey-text text-darken-3">Sign In</h5>
           <div className="input-field">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleOnChange} />
+            <input
+              type="email"
+              id="email"
+              onChange={this.handleOnChange}
+              required
+            />
           </div>
           <div className="input-field">
             <label htmlFor="password">Password</label>
@@ -38,6 +42,7 @@ export class SingedIn extends Component {
               type="password"
               id="password"
               onChange={this.handleOnChange}
+              required
             />
           </div>
           <div className="input-field">
@@ -54,7 +59,8 @@ export class SingedIn extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    authError: state.auth.authError
   };
 };
 
