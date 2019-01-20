@@ -29,7 +29,12 @@ export class CreateProject extends Component {
           <h5 className="grey-text text-darken-3">Add Project</h5>
           <div className="input-field">
             <label htmlFor="title">Project Title</label>
-            <input type="text" id="title" onChange={this.handleOnChange} />
+            <input
+              type="text"
+              id="title"
+              onChange={this.handleOnChange}
+              required
+            />
           </div>
           <div className="input-field">
             <label htmlFor="content">Project Content</label>
@@ -37,6 +42,7 @@ export class CreateProject extends Component {
               id="content"
               className="materialize-textarea"
               onChange={this.handleOnChange}
+              required
             />
           </div>
           <div className="input-field">

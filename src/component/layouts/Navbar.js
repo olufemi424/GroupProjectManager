@@ -16,7 +16,7 @@ const Navbar = props => {
     <nav className="nav-wrapper">
       <div className="container">
         <Link to="/" className="brand-logo left">
-          Project Manager
+          Project Guides
         </Link>
         {links}
       </div>
