@@ -15,6 +15,7 @@ class ProjectDetails extends Component {
 
   render() {
     const { project, auth } = this.props;
+
     if (!auth.uid) return <Redirect to="/login" />;
     if (project) {
       return (
@@ -32,12 +33,14 @@ class ProjectDetails extends Component {
               </div>
             </div>
           </div>
-          <button
-            className="btn red lighten-1 x-depth-0"
-            onClick={this.handleDelete}
-          >
-            Delete Project
-          </button>
+          {project.authEmail === auth.email && (
+            <button
+              className="btn red lighten-1 x-depth-0"
+              onClick={this.handleDelete}
+            >
+              Delete Project
+            </button>
+          )}
         </div>
       );
     } else {

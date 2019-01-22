@@ -4,6 +4,8 @@ export const createProject = project => {
     const fireStore = getFirestore();
     const profile = getState().firebase.profile;
     const authorId = getState().firebase.auth.uid;
+    const authorEmail = getState().firebase.auth.email;
+
     fireStore
       .collection("projects")
       .add({
@@ -11,6 +13,7 @@ export const createProject = project => {
         authorFirstName: profile.firstName,
         authorLastName: profile.lastName,
         authorID: authorId,
+        authEmail: authorEmail,
         createdAt: new Date()
       })
       .then(() => {
@@ -25,39 +28,31 @@ export const createProject = project => {
 export const deleteProject = id => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const authorID = getState().firebase.auth.uid;
-    const product = getState().firestore.ordered.projects.filter(
-      id => id.authorID === authorID
+    const project = getState().firestore.ordered.projects.filter(
+      project => project.id === id
     );
-    let productId;
+    const projectAuthId = project[0].authorID;
+    const fireStore = getFirestore();
 
-    if (product[0] === undefined) {
-      productId = null;
+    if (projectAuthId === authorID) {
+      fireStore
+        .collection("projects")
+        .doc(id)
+        .delete()
+        .then(response => {
+          console.log("success");
+        })
+        .catch(err => {
+          console.log(err);
+        })
+        .then(() => {
+          dispatch({ type: "DELETE_PROJECT_SUCCESS" });
+        })
+        .catch(err => {
+          dispatch({ type: "DELETE_PROJECT_ERROR", err });
+        });
     } else {
-      productId = product[0].authorID;
+      dispatch({ type: "DELETE_NOT_AUTH_ERROR" });
     }
-
-    console.log(productId, authorID);
-
-    // const fireStore = getFirestore();
-    // if (productId === authorID) {
-    //   fireStore
-    //     .collection("projects")
-    //     .doc(id)
-    //     .delete()
-    //     .then(response => {
-    //       console.log("success");
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     })
-    //     .then(() => {
-    //       dispatch({ type: "DELETE_PROJECT_SUCCESS" });
-    //     })
-    //     .catch(err => {
-    //       dispatch({ type: "DELETE_PROJECT_ERROR", err });
-    //     });
-    // } else {
-    //   dispatch({ type: "DELETE_NOT_AUTH_ERROR" });
-    // }
   };
 };
