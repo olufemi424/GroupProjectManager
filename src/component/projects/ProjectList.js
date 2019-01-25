@@ -17,7 +17,7 @@ const ProjectList = ({ projects }) => {
       </div>
     );
   } else {
-    return <div>projects loding</div>;
+    return <div className="spinner" />;
   }
 };
 

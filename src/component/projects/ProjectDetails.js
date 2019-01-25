@@ -44,11 +44,7 @@ class ProjectDetails extends Component {
         </div>
       );
     } else {
-      return (
-        <div className="contsiner center">
-          <p>loading project...</p>
-        </div>
-      );
+      return <div className="spinner" />;
     }
   }
 }
